@@ -1,11 +1,10 @@
 jHeatmap-iPython
 ==================
 
-stolen and adapted from https://github.com/jdfreder/ipython-d3.git
-
 This directory contains example code and notebooks that show how jHeatmap can be as
-IPython notebook widget framework to make some really cool, interactive, force directed graphs.
+IPython notebook widget framework to make some really cool, interactive, heatmaps.
 
+- Youtube video: https://www.youtube.com/watch?v=9bO1fCJhJyo
 
 - `demo jheatmap.ipynb`
   **Start here** Work in progress.
