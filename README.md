@@ -1,19 +1,25 @@
-jHeatmap-iPython
-==================
+jHeatmap for iPython Notebook
+==============================
 
-This directory contains example code and notebooks that show how jHeatmap can be as
-IPython notebook widget framework to make some really cool, interactive, heatmaps.
+*jHetmap interactive heatmaps for the web browser*
+
+jHeatmap can be used as IPython notebook widget framework to make some really cool, interactive, heatmaps.
 
 - **Youtube video**: A showcase of jHeatmap https://www.youtube.com/watch?v=9bO1fCJhJyo
+
+![Image of jHeatmap in iPython Notebook](data/jheatmap-ipython.png)
+
 
 Installation
 ==================
 
-- **Dependencies** make sure dependencies are installed: `pandas`, `ipython[notebook]`
-- **Check out the demo notebook** `demo jheatmap.ipynb`
-- **Checkout documentation at jHeatmap website**: http://jheatmap.github.io/jheatmap/
-- **Start being productive**
+- Make sure **dependencies** are installed: `pandas`, `ipython[notebook]`
+- Install this library: python setup.py install
+- Check out the **demo notebook** `demo jheatmap.ipynb`
+- Check out **documentation** of the javascript at jHeatmap website: http://jheatmap.github.io/jheatmap/
+- **Start being productive** and cite us
 
 TODO list
 ===============
  - Make it work in ContainerWidgets : popups, tab, etc
+ - delete tmp files
