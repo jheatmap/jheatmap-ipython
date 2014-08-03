@@ -3,7 +3,7 @@ jHeatmap for iPython Notebook
 
 *jHetmap interactive heatmaps for the web browser*
 
-jHeatmap can be used as IPython notebook widget framework to make some really cool, interactive, heatmaps.
+jHeatmap can be used as IPython notebook widget framework to make interactive heatmaps.
 
 - **Youtube video**: A showcase of jHeatmap https://www.youtube.com/watch?v=9bO1fCJhJyo
 
@@ -13,8 +13,8 @@ jHeatmap can be used as IPython notebook widget framework to make some really co
 Installation
 ==================
 
-- Make sure **dependencies** are installed: `pandas`, `ipython[notebook]`
-- Install this library: python setup.py install
+- Make sure **dependencies** are installed: `python3`, `pandas`, `ipython[notebook]`
+- Install this library: `python setup.py install`
 - Check out the **demo notebook** `demo jheatmap.ipynb`
 - Check out **documentation** of the javascript at jHeatmap website: http://jheatmap.github.io/jheatmap/
 - **Start being productive** and cite us

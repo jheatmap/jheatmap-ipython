@@ -1,4 +1,4 @@
-samples	symbol	Mutation	CNA Status	Expression
+samples	symbol	Mutation	CNA_Status	Expression
 TCGA-02-0047	ABCB1	-	-	0.132
 TCGA-02-0047	ACVR1B	-	-	0.078
 TCGA-02-0047	ADCY1	-	-	0.383
