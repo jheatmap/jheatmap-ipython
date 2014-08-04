@@ -81,5 +81,17 @@ function loadCSS() {
 	    link.media = 'all';
 	    head.appendChild(link);
 	}
+	var cssId = 'myCss2';  // you could encode the css path itself to generate id..
+	if (!$.getElementById(cssId))
+	{
+	    var head  = $.getElementsByTagName('head')[0];
+	    var link  = $.createElement('link');
+	    link.id   = cssId;
+	    link.rel  = 'stylesheet';
+	    link.type = 'text/css';
+	    link.href = 'jheatmap/dependencies/font-awesome-4.1.0/css/font-awesome.min.css';
+	    link.media = 'all';
+	    head.appendChild(link);
+	}
 }
 
