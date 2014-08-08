@@ -29,7 +29,6 @@ class JHeatmap(widgets.DOMWidget):
             """
         super(JHeatmap, self).__init__(**kwargs)
         self._popup_shown = False
-        self._js_loaded = False
         self._popup = None
         values_df = self._primary_col(cols, values_df)
         values_df = self._primary_row(rows, values_df)
@@ -93,9 +92,6 @@ class JHeatmap(widgets.DOMWidget):
         #   return
 
         widgets.DOMWidget._ipython_display_(self, **kwargs)
-        if not self._js_loaded:
-            self._js_loaded = True
-            self._publish_js()
 
         funcs = " heatmap.options.container[0]._heatmapInstance = heatmap; "
         if len(self._init_config) > 0:
@@ -117,11 +113,5 @@ class JHeatmap(widgets.DOMWidget):
         self._popup.button_text = "Show heatmap"
         self._popup.children = [self]
         #self._popup.on_displayed(self._ipython_display_)
-
-
-    @staticmethod
-    def _publish_js():
-        with open('jheatmap/widget_jheatmap_loader.js', 'r') as f:
-            display(Javascript(data=f.read()))
 
 
