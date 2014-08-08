@@ -14,7 +14,8 @@ TMP = "tmp"
 class JHeatmap(widgets.DOMWidget):
     _view_name = Unicode('JHeatmapWidget', sync=True)
 
-    def __init__(self, values_df: pandas.DataFrame,
+    def __init__(self,
+                 values_df: pandas.DataFrame,
                  rows: list=[],
                  cols: list=[],
                  init_config: str="",
@@ -30,6 +31,9 @@ class JHeatmap(widgets.DOMWidget):
         super(JHeatmap, self).__init__(**kwargs)
         self._popup_shown = False
         self._popup = None
+        self.on_msg(self._handle_my_msg)
+        self._tmp_file_list = []
+
         values_df = self._primary_col(cols, values_df)
         values_df = self._primary_row(rows, values_df)
 
@@ -65,17 +69,29 @@ class JHeatmap(widgets.DOMWidget):
                 values_df = values_df[new_order]
         return values_df
 
-    @staticmethod
-    def _get_tmp_filename(filename):
+    def _get_tmp_filename(self, filename):
         tmp_base = "jheatmap-" + str(uuid.uuid1())
         if not os.path.exists(TMP):
             os.mkdir(TMP)
-        return TMP + "/" + tmp_base + filename
+        path = TMP + "/" + tmp_base + filename
+        self._tmp_file_list.append(path)
+        return path
 
     #def get_popup(self) -> widgets.PopupWidget:
     #    if self._popup is None:
-    #        self._create_popup()
+    #    self._create_popup()
     #    return self._popup
+
+    def _handle_my_msg(self, _, content : dict):
+        """handle a message from the frontent"""
+        if content.get('event', '') == 'clear_tmp':
+            self.clear_tmp_files()
+
+    def clear_tmp_files(self):
+        print(self._tmp_file_list)
+        for filename in self._tmp_file_list:
+            print(filename)
+            os.remove(filename)
 
     def exec_js(self, js):
         self.send({

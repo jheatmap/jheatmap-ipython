@@ -22,4 +22,4 @@ Installation
 TODO list
 ===============
  - Make it work in ContainerWidgets : popups, tab, etc
- - delete tmp files
+ - convert canvas to img

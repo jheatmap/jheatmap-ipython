@@ -45,6 +45,19 @@ function getJHeatmapWidgetInstance(WidgetManager) {
 		    }
 		},
 
+		remove_temp_files: function() {
+                var heatmap = $("#" + this.guid)[0]._heatmapInstance;
+                var that = this;
+                if(heatmap === undefined || heatmap.cells.ready === false) {
+                    //console.log("wanna delete - waiting")
+                    setTimeout(function(){ that.remove_temp_files() }, 1000);
+
+                } else {
+                    //console.log("deleting")
+                    this.send({event:'clear_tmp'});
+                }
+		},
+
 		update: function(){
 		    if (this._inputData == undefined) {
                          console.log("bad update!");
@@ -52,13 +65,11 @@ function getJHeatmapWidgetInstance(WidgetManager) {
             }
 		    if (!this.has_drawn) {
 			    this.has_drawn = true;
-			    //var width = this.model.get('width'),
-			    //var height = this.model.get('height');
-                //this._inputData = eval("({data : { values : new jheatmap.readers.TableHeatmapReader( { url : 'data/genomic-alterations.tsv'} ) }})");
 
                 var drawdiv = $("#" + this.guid);
                 var options = eval("( " + this._inputData  + ")");
                 drawdiv.heatmap(options);
+                this.remove_temp_files();
 		    }
 		    return jHeatmapWidget.__super__.update.apply(this);
 		},
