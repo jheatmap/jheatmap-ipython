@@ -88,10 +88,9 @@ class JHeatmap(widgets.DOMWidget):
             self.clear_tmp_files()
 
     def clear_tmp_files(self):
-        print(self._tmp_file_list)
         for filename in self._tmp_file_list:
-            print(filename)
             os.remove(filename)
+        os.rmdir(TMP)
 
     def exec_js(self, js):
         self.send({
